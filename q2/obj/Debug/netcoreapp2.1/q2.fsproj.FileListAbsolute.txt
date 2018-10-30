@@ -1,0 +1,3 @@
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/q2/obj/Debug/netcoreapp2.1/q2.fsprojAssemblyReference.cache
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/q2/obj/Debug/netcoreapp2.1/q2.AssemblyInfoInputs.cache
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/q2/obj/Debug/netcoreapp2.1/q2.AssemblyInfo.fs

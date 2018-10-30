@@ -1,0 +1,10 @@
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/obj/Debug/netcoreapp2.1/q1.fsprojAssemblyReference.cache
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/obj/Debug/netcoreapp2.1/q1.AssemblyInfoInputs.cache
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/obj/Debug/netcoreapp2.1/q1.AssemblyInfo.fs
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/bin/Debug/netcoreapp2.1/q1.deps.json
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/bin/Debug/netcoreapp2.1/q1.runtimeconfig.json
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/bin/Debug/netcoreapp2.1/q1.runtimeconfig.dev.json
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/bin/Debug/netcoreapp2.1/q1.dll
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/bin/Debug/netcoreapp2.1/q1.pdb
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/obj/Debug/netcoreapp2.1/q1.dll
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q1/obj/Debug/netcoreapp2.1/q1.pdb
