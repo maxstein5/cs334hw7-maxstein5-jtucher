@@ -1,0 +1,3 @@
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q5/obj/Debug/netcoreapp2.1/q5.fsprojAssemblyReference.cache
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q5/obj/Debug/netcoreapp2.1/q5.AssemblyInfoInputs.cache
+/home/cs-students/21mds5/Documents/334/cs334hw7-maxstein5-jtucher/q5/obj/Debug/netcoreapp2.1/q5.AssemblyInfo.fs
