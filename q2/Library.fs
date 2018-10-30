@@ -13,7 +13,7 @@ type Tree<'a> =
 
 /// <return> Returns the result of the combined tree of type output of f.</return>
 
-let rec treduce f t =
+let rec treduce (f:('a -> 'a -> 'a)) (t: Tree<'a>) =
     match t with
-    | Leaf (a) -> a
-    | Node (t1,t2) -> f (treduce f t1)(treduce f t2) 
+    | Leaf(a) -> a
+    | Node(t1,t2) -> f(treduce f t1)(treduce f t2) 
