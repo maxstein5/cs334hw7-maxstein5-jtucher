@@ -9,12 +9,30 @@ type Expr =
 
 let expr, exprImpl = recparser()
 
-let variable    : Parser<Expr> = pitem |>> (fun c -> Variable c) <|> "variable" (* variable parser implementation *)
+let variable    : Parser<Expr> = pitem |>> (fun c -> Variable c) <!> "variable" (* variable parser implementation *)
 
-let abstraction : Parser<Expr> = pseq variable exprImpl |>> (fun (a,b) -> Abstraction(a,b)) <|> "abstraction" (* abstraction parser implementation *)
+let abstraction : Parser<Expr> = pbetween (pbetween (pseq (pchar '(') (pchar 'L')) (pchar '.') pitem) (pchar ')') expr (fun (a,b) -> Abstraction(a,b)) <!> "abstraction"
 
-let application : Parser<Expr> = pseq exprImpl exprImpl |>> (fun (a,b) -> Application(a,b)) <|> "application" (* application parser implementation *)
+let application : Parser<Expr> = pseq expr expr (fun (a,b) -> Application(a,b)) <!> "application" (* application parser implementation *)
 
-let expr = variable <|> abstraction <|> application <|> "expr"
+exprImpl := variable <|> abstraction <|> application <!> "expr" (* expr parser implementation *)
 
-exprImpl:= pmany1 expr (* expr parser implementation *)
+let grammar = pleft expr peof <!> "top"
+
+let parse input : Expr option =
+    match grammar (prepare input) with
+    | Success(res, _) -> Some res
+    | Failure -> None
+
+let rec repl() : unit =
+    printf "Enter an expression: "
+    let input = System.Console.ReadLine()
+    if input = "quit" then
+        printfn "Goodbye!"
+        exit 0
+    else
+        let asto = parse input
+        match asto with
+        | Some ast -> printfn "%A" ast
+        | None     -> printfn "Invalid expression."
+        repl()
