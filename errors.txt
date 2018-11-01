@@ -1,0 +1,2 @@
+There is an error in the Parser Combinators reading. Instead of "we only every partially apply", "it should read "we only ever partially apply".
+
