@@ -5,16 +5,27 @@ open CS334
 
 [<EntryPoint>]
 let main argv =
+    let argparse argv =
+        if Array.length argv <> 1 then
+            printfn "Need a lambda expression"
+            exit(1)
+
+        let s: String =
+            try
+                argv.[0]
+            with
+            | :? System.FormatException as e ->
+                printfn "Not a string"
+                exit(1)
+        s
+
     let printparse x = 
         match x with
         | Some x -> printfn "%A" (lambdaprint x)
         | None -> printfn "Invalid program."
-    let asto = parse "((Lx.(Lx.x))(Lx.(xx)))"
+
+    let asto = parse (argparse argv)
     printparse asto
-    let y = parse "(((Lx.((xx)(ax)))(Lx.(bx)))a)"
-    printparse y
-    let z = parse "((Lx.x)(Lx.x))"
-    printparse z
     let alph y = 
         let u = 
             match y with
@@ -25,6 +36,4 @@ let main argv =
         match (alphanorm u (fv u) Map.empty) with
         | (e, b) -> printfn "%A" (lambdaprint e)
     alph asto
-    alph y
-    alph z
     0
