@@ -1,0 +1,10 @@
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/Debug/netcoreapp2.1/q2.fsprojAssemblyReference.cache
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/Debug/netcoreapp2.1/q2.AssemblyInfoInputs.cache
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/Debug/netcoreapp2.1/q2.AssemblyInfo.fs
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/bin/Debug/netcoreapp2.1/q2.deps.json
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/bin/Debug/netcoreapp2.1/q2.runtimeconfig.json
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/bin/Debug/netcoreapp2.1/q2.runtimeconfig.dev.json
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/bin/Debug/netcoreapp2.1/q2.dll
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/bin/Debug/netcoreapp2.1/q2.pdb
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/Debug/netcoreapp2.1/q2.dll
+/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/Debug/netcoreapp2.1/q2.pdb
