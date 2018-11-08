@@ -2,12 +2,18 @@ module CS334
 
 open LambdaParser
 
+/// <summary>Prints an AST in the exact form that the user typed it in.</summary>
+/// <param name="e">An Expr.</param>
+/// <returns>A string.</returns>
 let rec lambdaprint(e: Expr) : string =
     match e with
     | Variable(c) -> c.ToString()
     | Abstraction(a, b) -> "(L" + a.ToString() + "." + (lambdaprint b) + ")"
     | Application(a, b) -> "(" + (lambdaprint a) + (lambdaprint b) + ")"
 
+/// <summary>Finds and returns a set of all free variables in a lambda expression.</summary>
+/// <param name="e">An Expr.</param>
+/// <returns>A set of chars containing all free variables.</returns>
 let fv (e: Expr) : Set<char> =
     let rec helper (e: Expr)(bv: Set<char>) : Set<char> =
         match e with
@@ -15,7 +21,10 @@ let fv (e: Expr) : Set<char> =
         | Abstraction(a, b) -> helper b (Set.add a bv)
         | Application(a, b) -> Set.union (helper a bv) (helper b bv)
     helper e Set.empty
-
+    
+/// <summary>Gives the next available letter of the alphabet given a set of already used letters.</summary>
+/// <param name="b">A set of already used chars.</param>
+/// <returns>A fresh char.</returns>
 let freshvar (b: Set<char>) : char =
     let letters = Set.ofList ['a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'; 'i'; 'j'; 'k'; 'l'; 'm'; 'n'; 'o'; 'p'; 'q'; 'r'; 's'; 't'; 'u'; 'v'; 'w'; 'x'; 'y'; 'z']
     let fv = Set.toList (Set.difference letters b)
@@ -24,7 +33,12 @@ let freshvar (b: Set<char>) : char =
     | [] ->
         printfn "No more letters in alphabet" 
         exit(1)
-
+        
+/// <summary>Alpha normalized a lambda expression so that every different bound variable is a unique letter.</summary>
+/// <param name="e">An Expr.</param>
+/// <param name="b">A set of already used chars.</param>
+/// <param name="r">A map from char to char full of renaming rules.</param>
+/// <returns>A char.</returns>
 let rec alphanorm (e: Expr)(b: Set<char>)(r: Map<char, char>) : Expr*Set<char> = 
     match e with
     | Variable(c) -> 
