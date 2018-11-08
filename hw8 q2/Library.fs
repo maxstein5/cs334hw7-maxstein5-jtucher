@@ -5,8 +5,8 @@ open LambdaParser
 let rec lambdaprint(e: Expr) : string =
     match e with
     | Variable(c) -> c.ToString()
-    | Abstraction(a, b) -> "L" + a.ToString() + ". " + (lambdaprint b) + ""
-    | Application(a, b) -> "(" + (lambdaprint a) + ")(" + (lambdaprint b) + ")"
+    | Abstraction(a, b) -> "(L" + a.ToString() + "." + (lambdaprint b) + ")"
+    | Application(a, b) -> "(" + (lambdaprint a) + (lambdaprint b) + ")"
 
 let fv (e: Expr) : Set<char> =
     let rec helper (e: Expr)(bv: Set<char>) : Set<char> =
@@ -18,27 +18,35 @@ let fv (e: Expr) : Set<char> =
 
 let freshvar (b: Set<char>) : char =
     let letters = Set.ofList ['a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'; 'i'; 'j'; 'k'; 'l'; 'm'; 'n'; 'o'; 'p'; 'q'; 'r'; 's'; 't'; 'u'; 'v'; 'w'; 'x'; 'y'; 'z']
-    let fv = Set.toList (Set.difference b letters)
+    let fv = Set.toList (Set.difference letters b)
     match fv with
     | a::fv' -> a
-    | [] -> exit(1)
+    | [] ->
+        printfn "No more letters in alphabet" 
+        exit(1)
 
 let rec alphanorm (e: Expr)(b: Set<char>)(r: Map<char, char>) : Expr*Set<char> = 
     match e with
     | Variable(c) -> 
-        if(Map.containsKey c r) then (Variable(Map.find c r), b) else (Variable(c), b)
+        if(Map.containsKey c r) then 
+            (Variable(Map.find c r), b) 
+        else (Variable(c), b)
     | Abstraction(v, e) -> 
         if(Set.contains v b) then
             let v' = freshvar b
             let b' = Set.add v' b
-            let r' = Map.add v' v r
-            match alphanorm e b' r' with
+            let r' = Map.add v v' r
+            match (alphanorm e b' r') with
             |(e, b) -> (Abstraction(v', e), Set.union b b')
         else
             let b' = Set.add v b
             match alphanorm e b' r with
             |(e, b) -> (Abstraction(v, e), Set.union b b')
     | Application(e1, e2) -> 
-        match (alphanorm e1 b r, alphanorm e2 b r) with
+        let t1 = (alphanorm e1 b r)
+        let t2 =
+            match t1 with
+            |(e, b') -> (alphanorm e2 b' r)
+        match (t1, t2) with
         |((e1, b1), (e2, b2)) -> (Application(e1, e2), Set.union b1 b2)
     

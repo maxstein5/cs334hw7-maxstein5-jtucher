@@ -788,11 +788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/q2.fsproj",
+      "projectUniqueName": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/hw8 q2/q2.fsproj",
       "projectName": "q2",
-      "projectPath": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/q2.fsproj",
+      "projectPath": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/hw8 q2/q2.fsproj",
       "packagesPath": "/Users/JuliaTucher/.nuget/packages/",
-      "outputPath": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw8-jtucher/q2/obj/",
+      "outputPath": "/Users/JuliaTucher/Documents/18-19/CS334/cs334hw7-maxstein5-jtucher/hw8 q2/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
